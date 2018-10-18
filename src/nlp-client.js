@@ -1,27 +1,60 @@
-// Imports the Google Cloud client library
-const language = require('@google-cloud/language');
+const config = require('config');
+const path = require('path');
+const automl = require('@google-cloud/automl');
+const logger = require(path.join(__dirname, 'services/logger'));
+const ERROR_CODES = require(path.join(__dirname, 'constants/errors.json'));
 
-// Instantiates a client
-const client = new language.LanguageServiceClient();
+const nlp = new automl.PredictionServiceClient(config.AUTOML.INIT);
+const modelName = nlp.modelPath(...config.AUTOML.MODEL_PATH);
 
-// The text to analyze
-const text = 'Hello, world!';
+const THRESHOLD = 0.5;
 
-const document = {
-  content: text,
-  type: 'PLAIN_TEXT',
-};
+function predict(content, callback) {
+  logger.debug('Predicting: ', content);
+  let request = {
+    name: modelName,
+    payload: {
+      textSnippet: {
+        content: content
+      }
+    }
+  };
+  nlp.predict(request)
+    .then(response => {
+      logger.debug('Predicted: ', response);
+      let result = parseResponse(response);
+      if (result.error) {
+        return callback(result.error);
+      }
+      return callback(null, result);
+    })
+    .catch(err => {
+      err.code = ERROR_CODES[err.code || 500];
+      return callback(err);
+    });
+}
 
-// Detects the sentiment of the text
-client
-  .analyzeSentiment({document: document})
-  .then(results => {
-    const sentiment = results[0].documentSentiment;
-
-    console.log(`Text: ${text}`);
-    console.log(`Sentiment score: ${sentiment.score}`);
-    console.log(`Sentiment magnitude: ${sentiment.magnitude}`);
-  })
-  .catch(err => {
-    console.error('ERROR:', err);
+function parseResponse(response) {
+  if (!response || !response[0]) {
+    let error = new Error('No valid response');
+    error.code = 400;
+    return { error };
+  }
+  let payload = response[0].payload || [];
+  let result = {
+    score: payload[0].classification.score,
+    type: payload[0].displayName
+  };
+  // Getting the higher score in case they don't arrive sorted
+  payload.forEach(type => {
+    if (type.classification.score > result.score) {
+      result.score = type.classification.score;
+      result.type = type.displayName;
+    }
   });
+  return result;
+}
+
+module.exports = {
+  predict
+}

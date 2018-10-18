@@ -100,5 +100,5 @@ function processHtml(html, opts) {
 }
 
 module.exports = {
-  processHtml: processHtml
+  processHtml
 };

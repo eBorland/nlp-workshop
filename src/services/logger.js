@@ -51,8 +51,7 @@ function request(req, level, message) {
     url: req.url,
     params: JSON.parse(JSON.stringify(req.params || {})),
     query: JSON.parse(JSON.stringify(req.query || {})),
-    body: JSON.parse(JSON.stringify(req.body || {})),
-    user: req.session.user && req.session.user._id
+    body: JSON.parse(JSON.stringify(req.body || {}))
   };
   if (level === 'debug' || level === 'trace') {
     logObject.session = req.session;

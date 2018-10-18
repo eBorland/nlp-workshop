@@ -10,7 +10,6 @@ const express = require('express');
 const Server = require('http').Server;
 const expressSession = require('express-session');
 const serveStatic = require('serve-static');
-
 const config = require('config');
 const compression = require('compression');
 const bodyParser = require('body-parser');
@@ -60,24 +59,11 @@ app.use(bodyParser.json({
 app.use(bodyParser.text());
 
 // Router
-/*
-require(path.join(__dirname, 'routes/router'))(app);
-*/
-
-// Serving Webapp as static content
-/*
-app.use(serveStatic(path.resolve(config.get('webapp.url')), {
-  setHeaders: function (res, path) {
-    if (path.indexOf('index.html') === -1) {
-      res.setHeader('Cache-Control', config.get('webapp.cacheControl'));
-    }
-  }
-}));
-*/
+require(path.join(__dirname, './router'))(app);
 
 // Starting DB and Server
 (function initializeServer() {
-  let port = config.get('SERVER.PORT');
+  const port = config.get('SERVER.PORT');
   server.listen(port, err => {
     if (err) {
       logger.error(err, 'Error starting NLP Server');

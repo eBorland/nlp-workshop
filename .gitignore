@@ -18,3 +18,7 @@ coverage
 
 # Documentation files
 docs
+
+# Credentials
+.credentials*
+config/prod*
