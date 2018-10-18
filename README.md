@@ -3,13 +3,19 @@ NLP: Getting started
 
 **Table of Contents**
 
+* [About](#about)
 * [Requirements](#requirements)
     * [Git](#git)
     * [NodeJS](#nodejs)
     * [This project](#this-project)
     * [Global and local dependencies](#global-and-local-dependencies)
+* [Usage](#usage)
+    * [Scraper](#scraper)
 
 - - -
+
+## About
+This project is created to give a base to the developers during the NLP Worshop. Is a very simple and basic NLP server accepting requests to predict text categories (intended for news categories, but can be used with any model) using Google Cloud AutoML services
 
 ## Requirements
 
@@ -116,4 +122,49 @@ git clone <repo_url>
 ```
 npm install -g yarn
 yarn
+```
+
+## Usage
+This project includes two mini modules to help processing and predicting texts
+
+### Scraper
+This (src/scraper.js) is an html scraper intented to be used with news in order to extract information about them.
+You can use it in the command line (cli) or import it in your project to call directly its methods.
+The information it extracts is the following:
+- Title (by default found as the \<h1\> tag)
+- Subtitle(s) (by default found as the \<h2\> tag(s))
+- Body or text (by default found as all \<p\> tags concatenated)
+
+```Note: feel free to improve the scraper to increase granularity!!```
+
+#### Command line usage (CLI)
+```sh
+node src/scraper/cli.js --url https://www.bbc.com/news/world-middle-east-45904904 [--h2 null --text '.story-body__inner p']
+```
+
+The parameters are the following:
+- --url: Required. It must be followed with the url of the news source
+- --h1: Optional (default 'h1'). It is used to override the css selector of the title
+- --h2: Optional (default 'h2'). It is used to override the css selector of the subtitle (null for no subtitle)
+- --text: Optional (default 'p'). It is used to override the css selector of the body
+- --output: Optional. When present, the scraper saves the full text into the indicated path (mainly used to create datasets)
+
+Example with output
+```
+node src/scraper/cli.js --url https://www.bbc.com/news/world-middle-east-45904904 --h2 null --text '.story-body__inner p' --output dataset/politics/sample1.txt
+```
+
+```Note: feel free to improve the scraper to better automate the dataset generation```
+
+#### As a module to be imported in a project
+```js
+const scraper = require('./src/scraper') // HEADS UP! The url might change
+const options = {
+  title: 'h1.title',
+  subtitle: 'h2.subtitle',
+  text: 'div.body'
+};
+const htmlText = '<html><head></head><body><h1 class="title">News title</h1><h2 class="subtitle">Subtitle would go here</h2><div class="body">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eleifend dui eget cursus porttitor. Etiam a imperdiet nunc. Sed convallis luctus nulla, quis lobortis erat fringilla at. Morbi orci nisl, iaculis ac placerat eget, ultricies at ligula. Praesent congue mi eu fermentum maximus. Nam placerat metus vitae sapien scelerisque, ut bibendum eros efficitur.</div></body></html>';
+let result = scraper.processHtml(htmlText, options);
+// result will be an object with title, subtitle and body
 ```

@@ -4,52 +4,26 @@ const https = require('https');
 const jsdom = require('jsdom');
 const { JSDOM } = jsdom;
 
-// Cli usage arguments
-const argv = require('yargs')
-  .usage('Usage: $0 --url <url> ')
-  .example('$0 --url https://www.bbc.com/news/science-environment-45856377', 'Scraping BBC news')
-  .option('run', {
-    alias: 'r',
-    describe: 'Run your program',
-    demandOption: false
-  })
-  .option('url', {
-    alias: 'u',
-    describe: 'Url to get the text from',
-    demandOption: true
-  })
-  .option('h1', {
-    describe: 'Selector for title',
-    default: 'h1'
-  })
-  .option('h2', {
-    describe: 'Selector for subtitle',
-    default: 'h2'
-  })
-  .option('text', {
-    alias: 't',
-    describe: 'Selector for text',
-    default: 'p'
-  })
-  .option('output', {
-    alias: 'o',
-    describe: 'Output file path'
-  })
-  .argv;
-
-// Cli usage wrapper
-(function run() {
-  const url = argv.url;
+/**
+ * getHtml(url, callback)
+ * @param url {String} The http(s) url to get the html from
+ * @param callback {Function}
+ *
+ * @returns err {Error}
+ * @returns data {String} The HTML string
+ */
+function getHtml(url, callback) {
   let request = https;
   if (!url.includes('https')) request = http;
   request.get(url, response => {
     let data = '';
     response.on('data', chunk => data += chunk);
-    response.on('end', () => processHtml(data, argv));
+    response.on('end', () => callback(null, data));
   }).on('error', err => {
     console.log('ERROR performing the request: ' + err.message, err);
+    return callback(err);
   });
-})();
+}
 
 /**
  * getText(elements)
@@ -68,7 +42,7 @@ function getText(elements) {
 }
 
 /**
- * processHtml(html, opts)
+ * processHtml(html, opts, print)
  *
  * @param html {String} The HTML string to process and extract title, subtitle and body
  * @param opts {Object} The options object
@@ -76,29 +50,35 @@ function getText(elements) {
  * @param opts.h2 {String='h2'} The CSS Selector to find the subtitle (default to 'h2')
  * @param opts.text {String='p'} The CSS Selector to find the body (default to 'p')
  * @param opts.output {String} When an output file is requried, it indicates the path to save it (ie: ./dataset/sports/sample1.txt) [Only recommended for cli usage]
+ * @param print {Boolean=false} Boolean indicating wether the output should be printed in console or not
  *
  * @return {Object} The title, subtitle, body and full texts extracted from the html
  *
  * TODO Feel free to improve and extend this function to achieve greater granurality
  */
-function processHtml(html, opts) {
+function processHtml(html, opts, print) {
   // Loading full HTML
   let dom = new JSDOM(html);
   let document = dom.window.document;
   // Splitting text headings and paragraphs
   let text = {
-    title: getText(document.querySelectorAll(opts.h1)),
-    subtitle: getText(document.querySelectorAll(opts.h2)),
-    body: getText(document.querySelectorAll(opts.text))
+    title: getText(document.querySelectorAll(opts.h1 || 'h1')),
+    subtitle: getText(document.querySelectorAll(opts.h2 || 'h2')),
+    body: getText(document.querySelectorAll(opts.text || 'p'))
   };
   text.full = text.title + '\n' + text.subtitle + '\n' + text.body;
   // Writing output file (for sampling purposes)
   if (opts.output) {
     fs.writeFileSync(opts.output, text.full, 'utf8');
+  } else if (print) {
+    console.log(text.full);
   }
   return text;
 }
 
 module.exports = {
+  getHtml,
+  getText,
   processHtml
 };
+
