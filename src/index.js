@@ -16,7 +16,6 @@ const bodyParser = require('body-parser');
 const path = require('path');
 
 const package = require(path.join(__dirname, '../package.json'));
-//const mongo = require(path.join(__dirname, 'services/db'));
 const logger = require(path.join(__dirname, 'services/logger'));
 
 // Initializing the app
