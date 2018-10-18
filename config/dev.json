@@ -7,6 +7,6 @@
     "INIT": {
       "keyFilename": ".credentials.json"
     },
-    "MODEL_PATH": ["hackupc-b8cb0", "us-central1", "TCN7107584648166314117"] 
+    "MODEL_PATH": ["", "us-central1", ""]
   }
 }

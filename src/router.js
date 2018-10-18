@@ -16,10 +16,23 @@ module.exports = function (router) {
     return next();
   });
 
-  // Predict
-  router.post('/predict', (req, res) => {
-    logger.info('Starting prediction');
-    nlp.predict(req.body.content, (err, result) => {
+  // Predict Text
+  router.post('/predict/text', (req, res) => {
+    logger.info('Starting text prediction');
+    nlp.predictText(req.body.content, (err, result) => {
+      if (err) {
+        logger.error('Error predicting text', err);
+        return res.sendStatus(err.code || 500);
+      }
+      logger.info('Prediction finished');
+      return res.status(200).send(result);
+    });
+  });
+
+  // Predict HTML url
+  router.post('/predict/url', (req, res) => {
+    logger.info('Starting url prediction');
+    nlp.predictUrl(req.body.url, req.body.options, (err, result) => {
       if (err) {
         logger.error('Error predicting text', err);
         return res.sendStatus(err.code || 500);
