@@ -1,0 +1,20 @@
+# Temporary extensions or folders
+temp
+*.log
+
+# OS or Editor folders
+node_modules
+bower_components
+.idea
+.DS_Store
+Thumbs.db
+*.ini
+
+# Test reporters
+test/coverage.html
+test/result.json
+coverage
+.nyc_output/
+
+# Documentation files
+docs

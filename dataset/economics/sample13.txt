@@ -1,0 +1,38 @@
+Could chip fat help dirty shipping clean up its act?
+
+
+The global shipping industry is as big a contributor to greenhouse gas emissions as aviation. And the heavy fuel oil that powers its giant vessels is exceptionally dirty - packed with soot, black carbon and sulphur. So is it doing enough to clean up its act?
+Shipping is facing a big problem.
+In little more than a year from now it will have to conform to new international regulations on toxic sulphur dioxide emissions.
+But there's little consensus on how this should be done, with many companies dragging their feet as a result.
+Sulphur dioxide belched out by ships when the fuel is burned is harmful to people and can cause environmentally damaging acid rain.
+On top of that, the sector contributes about 3% to global greenhouse gas emissions - that's more than 900 million tonnes of carbon dioxide spewed into the atmosphere.
+Could chip fat help mitigate these failings?
+In September, a biofuels program called GoodShipping announced that it had supplied a small container ship with 22,000 litres of Hydrotreated Vegetable Oil (HVO) - former cooking oil that has been turned into a diesel.
+When burned, it produces much less carbon dioxide, sulphur dioxide and particulates.
+Powering ships with biofuel has been done before, but the challenge is getting the industry to switch to cleaner alternatives in a big way.
+"We expect to be adding more, and larger, companies to our list of customers very soon," a spokeswoman for GoodShipping tells the BBC.
+A report by Lloyd's Register published last December argued that biofuels were probably the best way to help shipping lower emissions by 2030. But, the authors noted, "biofuels have two key, and coupled, challenges - sustainability and availability."
+Getting biofuels from food crops on a huge scale could push up food prices. It might be cleverer to make the fuel from algae instead, the report suggested. But algal biofuel has been discredited by some as being environmentally and commercially unsustainable.
+The world's biggest ships aren't about to switch over to running their engines on oil from plant matter or animal waste until there's a proven security of supply at an affordable cost.
+But the International Maritime Organization (IMO) says the sulphur dioxide content of shipping emissions has to be cut drastically from 3.5% to 0.5% by 2020.
+So how is the deadline to be met? This has become a massive talking point in the gigantic shipping industry that we rely on for practically all of the goods we own.
+The Intergovernmental Panel on Climate Change (IPCC) recently warned that the world was running out of time to curb the potentially disastrous effects of global warming, yet shipping pollution has actually been getting worse in recent years as demand for goods rises.
+"The regulation is set in stone, as it were," a spokeswoman for the IMO says, as is the deadline.
+But the IMO is flexible in terms of how shipping firms try to cut their sulphur dioxide emissions: "We don't have a preferred option."
+Besides biofuels, shipping companies could switch to low-sulphur oil, liquefied natural gas (LNG) or stick with the sulphurous fuel but install exhaust gas cleaning systems known as "scrubbers" to extract the sulphur dioxide.
+The trouble is, there isn't much time left to decide what approach to go for and many firms seem to be leaving it to the last minute.
+"There has been a head-in-the-sand approach for quite a while on this," says Jack Jordan at market research firm S&P Global Platts. The deadline was fixed two years ago, he says, "so you can't say they haven't had adequate time to think about it".
+Switching to a low-sulphur fuel oil has its challenges because refineries will produce a range of different products, which may not mix well together aboard ships. Plus, those new fuel products are currently more expensive than the high-sulphur versions.
+So many companies are opting to use scrubbers. A string of such announcements has surfaced in recent months, with some smaller firms, such as Greece-based Star Bulk Carriers, deciding to equip its whole fleet with the devices.
+But Simon Bergulf of Danish shipping giant Maersk - a self-confessed "huge sulphur nerd" - explains that fitting scrubbers is difficult, expensive work. It can cost around $2m-$3m (£1.5m-£2.3m) per ship.
+"It's like installing something the size of a 40ft (12m) container into a relatively small area," explains Mr Bergulf. "Each ship is a different project; even sister ships are different."
+More Technology of Business
+The company is installing scrubbers on just a few of its ships.
+And there are critics of scrubbers, too, because "open loop" varieties turn the captured sulphur dioxide into a dilute sulphuric acid that is washed out into the sea.
+"The sulphur isn't being removed from the environment, it's just being redistributed," says Alan Gelder at consultancy Wood Mackenzie.
+The IMO says it has strict rules about where ships should discharge scrubber run-off, and Maersk says it is making sure it will be "absolutely compliant" with those rules.
+Further down the line, ships may move away from burning fuels of any kind.
+Rolls-Royce announced in August that it had developed a new battery system for powering ships. Its offering is a lithium-ion device - a much bigger version of the battery in your smartphone - that is liquid-cooled.
+A 70m-long (230ft) vessel running on battery power was launched in China last year - ironically, to carry coal - so it is by no means an untested technology in shipping, even if it is unlikely to become widespread in the next few years.
+The first step towards cleaner shipping is getting over the 2020 hurdle - but there's a lot more work to be done after that to make this behemoth of industries less damaging to the planet.

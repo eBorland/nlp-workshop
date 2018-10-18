@@ -1,0 +1,18 @@
+Sundar Pichai: Google 'exploring' censored China search app
+
+
+Google chief executive Sundar Pichai has said a censored search app in China could serve over "99% of queries," in rare public comments about the controversial proposal.
+Mr Pichai told a conference in San Francisco the plan was in the "very early" stages and may not progress.
+Google's possible return to China - a market it abandoned over censorship concerns - was first leaked in August.
+The proposal has drawn criticism from employees and human rights advocates.
+On Monday, Mr Pichai did not commit to the launch, saying that the plan was still in an exploratory stage.
+"We wanted to learn what it would look like if Google were in China, so that's what we built internally," Mr Pichai said at the Wired conference in San Francisco.
+"It's very early, we don't know whether we would or could do this in China but we felt like it was important for us to explore. I think it's important for us given how important the market is and how many users there are," he said.
+Through internal tests, he said Google found it would be able serve "well over 99% of queries".
+Pichai on China:- says the firm never really left China anyway - “99%” of searches would still get through- taking long term viewGoes without saying - that 1% contains an awful lot.
+End of Twitter post  by @DaveLeeBBC
+The firm, which is owned by Alphabet, quit China eight years ago in protest at the country's censorship laws and alleged government hacks.
+However, reports in August claimed it had been secretively working on a new Chinese search service, referred to internally as Dragonfly.
+The platform, which still requires Chinese government approval, would reportedly block certain websites and search terms related to human rights and religion.
+This has angered some employees who fear they have been unwittingly working on technology that will help China suppress free expression.
+Earlier this month, US Vice-President Mike Pence called for Google to immediately halt work on Dragonfly, saying in a speech that it would "strengthen Communist Party censorship and compromise the privacy of Chinese customers".
