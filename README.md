@@ -113,7 +113,7 @@ Download the [Windows intaller of NodeJS](https://nodejs.org/en/) (v8.12 LTS rec
 ### This project
 Clone this project by running the following command:
 ```
-git clone <repo_url>
+git clone https://github.com/eBorland/nlp-workshop.git
 ```
 
 ### Global and local dependencies
@@ -142,15 +142,34 @@ If you chose to have full control, these are the steps you must follow.
 #### Option 2 - Not credit/debit card required:
 1) Form teams of 4, assign your team a name and create (or use an existing one) a google account.
 2) Send an email with subject "HackUPC Team: <team name>" to eric.borlandacosta@soprasteria.com indicating the fullname of each of you and the google account email you decided to use.
-3) Wait to be assigned to a Google Cloud Project. I will send you a .credentials.json file that you will have to include into the root of this project
+3) Wait to be assigned to a Google Cloud Project. We will send you a .credentials.json file that you will have to include into the root of this project
 4) Once receive the Google Cloud email, follow the instructions to signup into Google Cloud
-```
 
-### Google Cloud Account
+### Google Cloud AutoML Model
 1) Login into the [Google Cloud Console](https://console.cloud.google.com)
 2) Go to [Natural Language](https://cloud.google.com/automl/ui/text/overview)
 3) Select "Get started with AutoML"
-// TODO complete AutoML creation
+4) [ONLY THE BRAVE] It will require to activate Billing account and to enable the API. Follow the manual steps using the console. // TODO
+5) Create a new dataset by clicking on "New dataset"
+
+```Brief explanation of AutoML and Datasets: https://cloud.google.com/natural-language/automl/docs/beginners-guide```
+
+```Create an inclusive Model: https://cloud.google.com/inclusive-ml/```
+
+6) Compress and import the dataset located in ./dataset/ folder or create one of your own (you can try with multi-label if your model requires it)
+7) Wait until the dataset is processed, keep in mind that the bigger the dataset, the longer it will take to process it
+8) Once is processed, you must train your model. Click on train and wait until the training is completed. It might take several hours
+9) Once the model is prepared, you just have to add a config/dev.json file with the path to your model (replacing <PROJECT_ID> and <MODEL_ID> like the following:
+
+```json
+{
+  "AUTOML": {
+    "MODEL_PATH": [<PROJECT_ID>, "us-central1", <MODEL_ID>]
+  }
+}
+```
+
+And you're all set up! Congrats!
 
 - - - -
 
@@ -218,16 +237,17 @@ BODY
 {
   "content": "The Oasis icon explained how the moment of mistaken identity came as he began recording the follow-up to 2017’s acclaimed ‘Who Built The Moon?’“I’ve already been in the studio”, Noel told the Press Association.”I was in fucking Abbey Road for two weeks, and I walked past that zebra crossing every day to get recognised.“Tourists were walking across barefoot. Still no-one stopped. I got stopped once by a black cab driver who went past and went ‘all right Liam?’”oel Gallagher, 2018Noel, who picked up the awards for best solo artist and outstanding contribution to music at the Q Awards, also admitted that he’s now enjoying making music more than ever.Latest News Field Day festival is moving, again Mark Hoppus shares original lyric book from Blink-182’s ‘Untitled’ Watch Matt Bellamy and Graham Coxon’s Jaded Hearts Club Band perform another epic night of dad-rock covers “When you’re young it’s all in front of you. Now with a bit of time behind me, it feels different”, he admitted. “How many records are you going to make? When you are in the studio you have to give it your all. I love it. I love it now more than I ever have before.” Earlier this year, Noel teased that he may in fact have two albums’ worth of new material due for release. “I’ve got a whole backlog of songs, I write all the time so I’ve got plenty of material,” he said. “I’m going to make another record with David in this way but the last one took four years so I’ll probably have to make another one alongside it in the more traditional sense.”  Speaking to NME, he suggested that some of his new material sounded like ‘The Police meets The Cure‘."
 }
+```
 In this example, the server should respod back a 50% chance of Culture text
 
 - POST '/predict/url'
 This is used to predict the category getting the text from a url
 ```sh
-POST localhost:3000/predict/text
+POST localhost:3000/predict/url
 HEADER Content-Type="application/json"
 BODY
 {
-  "url": "https://www.bbc.com/news/world-middle-east-45904904",
+  "url": "https://www.bbc.com/news/business-45910262",
   "options": {
     "h2": null,
     "text": ".story-body__inner p"

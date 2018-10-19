@@ -1,7 +1,16 @@
 {
-  "logger": {
-    "console": {
-      "level": "info"
+  "LOGGER": {
+    "CONSOLE": {
+      "LEVEL": "info"
     }
+  },
+  "SERVER": {
+    "PORT": 3000
+  },
+  "AUTOML": {
+    "INIT": {
+      "keyFilename": ".credentials.json"
+    },
+    "MODEL_PATH": ["", "us-central1", ""]
   }
 }

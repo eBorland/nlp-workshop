@@ -21,4 +21,4 @@ docs
 
 # Credentials
 .credentials*
-config/prod*
+config/*

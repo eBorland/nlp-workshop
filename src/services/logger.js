@@ -4,23 +4,23 @@
 
 // Requiring logger dependencies
 var bunyan = require('bunyan');
-var config = require('config').get('logger');
+var CONFIG = require('config').LOGGER;
 
 var logger;
 var options = {
   name: 'nlp-server',
   streams: [{
-    level: config.console.level,
+    level: CONFIG.CONSOLE.LEVEL,
     stream: process.stdout
   }]
 };
 
 function Logger() {
   if (!logger) {
-    if (config.file) {
+    if (CONFIG.FILE) {
       options.streams.push({
-        level: config.file.level,
-        path: config.file.path
+        level: CONFIG.FILE.LEVEL,
+        path: CONFIG.FILE.PATH
       });
     }
     logger = bunyan.createLogger(options);
