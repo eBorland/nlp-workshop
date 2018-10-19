@@ -21,4 +21,5 @@ docs
 
 # Credentials
 .credentials*
+credentials
 config/*

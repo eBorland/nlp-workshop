@@ -18,44 +18,44 @@ NLP: Getting started
 - - -
 
 ## About
-This project is created to give a base to the developers during the NLP Worshop. Is a very simple and basic NLP server accepting requests to predict text categories (intended for news categories, but can be used with any model) using Google Cloud AutoML services
+This project is created to provide NLP Worshop developers with a base code. It's a very simple and basic NLP server that accepts requests and predicts text categories (intended for news categories, but can be used with any other model) using Google Cloud AutoML services.
 
 ## Requirements
 
-Prior to start using or contributing to this project you must install some cool stuff.
+Prior to start using or contributing to this project, you must install some cool stuff.
 Follow the guide using your platform-specifig instructions.
 
 ### Git:
-If you do not have git installed in your computer you must follow the steps below to install it.
-If you do not know wheter you have it installed or not, you can run the following command on your terminal:
+If you do not have git installed in your computer, please follow the steps below to install it.
+If you do not know wheter you have it installed or not, run the following command on your terminal:
 
 ```sh
 git --version
 ```
-If the response is something like "git version 2.17.1 (Apple Git-112)" it means you already have it. If, instead, it gives you some error like "-bash: git: command not found" (or any other) it means you MUST install it.
+If the response is something like "git version 2.17.1 (Apple Git-112)", it means it's already installed. If, instead, it gives you some error like "-bash: git: command not found" (or any other) it means you MUST install it.
 
 - Platform: Mac OSX
 
-Just type "git" in the terminal and follow the instructions to instal it
+Just type "git" in the terminal and follow the instructions to install it:
 ```sh
 git
 ```
 
 - Platform: Mac OSX (version 2, using homebrew)
 
-Run the folowing commands in your terminal
+Run the folowing commands in your terminal:
 ```sh
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew doctor
 ```
-And after that, you can install git with homebrew
+And after that, you can install git using homebrew:
 ```sh
 brew install git
 ```
 
 - Platform: Linux (Debian)
 
-Type the following commands and follow the instructions to install git
+Run the following commands and follow the instructions to install git:
 ```sh
 sudo apt-get update
 sudo apt-get upgrade
@@ -64,7 +64,7 @@ sudo apt-get install git
 
 - Platform: Linux (Red Hat)
 
-Type the following commands and follow the instructions to install git
+Run the following commands and follow the instructions to install git:
 ```sh
 sudo yum upgrade
 sudo yum install git
@@ -72,43 +72,43 @@ sudo yum install git
 
 - Platform: Windows (seriously?)
 
-Download [git for windows](https://gitforwindows.org/) and install it following the instructions in the package
+Download [git for windows](https://gitforwindows.org/) and install it following the instructions in the package.
 
 #### Credits: https://gist.github.com/derhuerst/1b15ff4652a867391f03
 
 ### NodeJS
-Once again, you must install NodeJS v8+ before you will able to run and develop for this project.
+Once again, you must install NodeJS v8+ to run and develop this project.
 To check if you already have it installed and what version you have, you can run the following command in your terminal:
 ```sh
 node --version
 ```
-If the output is something like "v8.11.3" or higher, then you're all good. If its some error or the version is lower than that, you'll need to follow the instructions.
+If the output is something like "v8.11.4" or higher, then you're all good. If it shows some error or the already installed version is lower than that, you'll need to follow the instructions.
 In Mac OSX or Linux, we strongly recommend to use nvm for a better management of node versions.
 
 - Platform: Mac OSX or Linux (using curl)
 
-Run the folowing command in your terminal
+Run the folowing command in your terminal:
 ```sh
 curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 ```
 
 - Platform: Mac OSX or Linux (using wget)
 
-Run the folowing command in your terminal
+Run the folowing command in your terminal:
 ```sh
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
 ```
 After that, restart your terminal or command line and check that nvm has been successfully installed by running ```nvm -v```.
 Now you are able to install the node version you want (again, you must install a version higher than v8.10):
 ```sh
-nvm install 8.11.3
-nvm alias default 8.11.3
+nvm install 8.11.4
+nvm alias default 8.11.4
 nvm use default
 ```
 
 - Platform: Windows (OMG, really?)
 
-Download the [Windows intaller of NodeJS](https://nodejs.org/en/) (v8.12 LTS recommended) and follow the instructions
+Download the [Windows intaller of NodeJS](https://nodejs.org/en/) (v8.12 LTS recommended) and follow the instructions.
 
 ### This project
 Clone this project by running the following command:
@@ -127,12 +127,12 @@ To get a Google Cloud Account, you have two options.
 
 #### Option 1 - Only the brave. Use it only if:
 - You want to have full control
-- You have a credit/debit card and don't afraid to use it online. HEADS UP! It should be FREE but if you are not carefull, Google might CHARGE YOU. Use it under your own responsability.
+- You have a credit/debit card and you're not afraid to use it online. HEADS UP! It should be FREE but if you are not careful, Google might CHARGE YOU. Please precisely follow these instructions and use it under your own responsability.
 
-If you chose to have full control, these are the steps you must follow.
+If you choose to have full control, these are the steps you to follow:
 
-1) Form teams of 4, assign your team a name and create (or use an existing one) a google account.
-2) Send an email with subject "[BRAVE] HackUPC Team: <team name>" to eric.borlandacosta@soprasteria.com indicating the fullname of each of you and the google account email you decided to use.
+1) Create 4-person teams, assign a name to your team and create (or use an existing one) a Google account.
+2) Send an email with subject "[BRAVE] HackUPC Team: <team name>" to eric.borlandacosta@soprasteria.com indicating the fullname of each of you and the Google account email you decided to use.
 1) Signup for [Google Cloud](https://cloud.google.com/)
 2) Login into the [Google Cloud Console](https://console.cloud.google.com)
 3) Create a Project
@@ -140,26 +140,25 @@ If you chose to have full control, these are the steps you must follow.
 // TODO Credentials
 
 #### Option 2 - Not credit/debit card required:
-1) Form teams of 4, assign your team a name and create (or use an existing one) a google account.
-2) Send an email with subject "HackUPC Team: <team name>" to eric.borlandacosta@soprasteria.com indicating the fullname of each of you and the google account email you decided to use.
-3) Wait to be assigned to a Google Cloud Project. We will send you a .credentials.json file that you will have to include into the root of this project
-4) Once receive the Google Cloud email, follow the instructions to signup into Google Cloud
+1) Create 4-person teams, assign your team a name and create (or use an existing one) a Google account.
+2) Send an email with subject "HackUPC Team: <team name>" to eric.borlandacosta@soprasteria.com indicating the fullname of each of you and the Google account email you decided to use.
+3) Wait to be assigned to a Google Cloud Project. We will send you a .credentials.json file that you will have to include to the root of this project
+4) Once you receive the Google Cloud email, follow the instructions to signup to Google Cloud.
 
 ### Google Cloud AutoML Model
 1) Login into the [Google Cloud Console](https://console.cloud.google.com)
 2) Go to [Natural Language](https://cloud.google.com/automl/ui/text/overview)
-3) Select "Get started with AutoML"
-4) [ONLY THE BRAVE] It will require to activate Billing account and to enable the API. Follow the manual steps using the console. // TODO
-5) Create a new dataset by clicking on "New dataset"
+3) Select "Get started with AutoML".
+4) [ONLY THE BRAVE] It will require to activate the Billing account and to enable the API. Follow the manual steps using the console. // TODO
+5) Create a new dataset by clicking on "New dataset".
 
 ```Brief explanation of AutoML and Datasets: https://cloud.google.com/natural-language/automl/docs/beginners-guide```
-
 ```Create an inclusive Model: https://cloud.google.com/inclusive-ml/```
 
 6) Compress and import the dataset located in ./dataset/ folder or create one of your own (you can try with multi-label if your model requires it)
-7) Wait until the dataset is processed, keep in mind that the bigger the dataset, the longer it will take to process it
-8) Once is processed, you must train your model. Click on train and wait until the training is completed. It might take several hours
-9) Once the model is prepared, you just have to add a config/dev.json file with the path to your model (replacing <PROJECT_ID> and <MODEL_ID> like the following:
+7) Wait until the dataset is processed, keep in mind that the bigger the dataset, the longer it will take to process
+8) Once processed, you must train your model. Click on train and wait until the training is completed. It might take several hours
+9) Once the model is prepared, you just have to add a config/dev.json file at the project root with the path to your model (replacing <PROJECT_ID> and <MODEL_ID> like the following:
 
 ```json
 {
@@ -174,12 +173,12 @@ And you're all set up! Congrats!
 - - - -
 
 ## Usage
-This project includes two mini modules to help processing and predicting texts
+This project includes two mini modules to help processing and predicting texts.
 
 ### Scraper
 This module (src/scraper.js) is an html scraper intented to be used with news in order to extract information about them.
-You can use it in the command line (cli) or import it in your project to call directly its methods.
-The information it extracts is the following:
+You can use it in the command line (cli) or import it in your project to directly call its methods.
+It extracts the following information:
 - Title (by default found as the \<h1\> tag)
 - Subtitle(s) (by default found as the \<h2\> tag(s))
 - Body or text (by default found as all \<p\> tags concatenated)
@@ -198,7 +197,7 @@ The parameters are the following:
 - --text: Optional (default 'p'). It is used to override the css selector of the body
 - --output: Optional. When present, the scraper saves the full text into the indicated path (mainly used to create datasets)
 
-Example with output
+Example with output:
 ```
 node src/scraper/cli.js --url https://www.bbc.com/news/world-middle-east-45904904 --h2 null --text '.story-body__inner p' --output dataset/politics/sample1.txt
 ```
@@ -207,7 +206,7 @@ node src/scraper/cli.js --url https://www.bbc.com/news/world-middle-east-4590490
 
 #### As a module to be imported in a project
 ```js
-const scraper = require('./src/scraper') // HEADS UP! The url might change
+const scraper = require('./src/scraper'); // HEADS UP! The url might change
 const options = {
   title: 'h1.title',
   subtitle: 'h2.subtitle',
@@ -219,14 +218,14 @@ let result = scraper.processHtml(htmlText, options);
 ```
 
 ### NLP Server
-NLP Server is the main module of this project allowing the user to perform requests to use the scraper and to predict categories using Google Cloud AutoML service
+NLP Server is the main module of this project, and allows users to perform requests to use the scraper and predict categories using the Google Cloud AutoML service.
 
 To start using it, run the following command:
 ```sh
 npm start
 ```
 
-And you will have a server listening to localhost:3000. The following requests are available:
+This will start a server listening on localhost:3000. The following requests are available:
 
 - POST '/predict/text'
 This is used to predict the category using directly a plain text. This is an example of a full request:
@@ -241,7 +240,7 @@ BODY
 In this example, the server should respod back a 50% chance of Culture text
 
 - POST '/predict/url'
-This is used to predict the category getting the text from a url
+This is used to predict the category getting the text from a url:
 ```sh
 POST localhost:3000/predict/url
 HEADER Content-Type="application/json"
@@ -254,4 +253,4 @@ BODY
   }
 }
 ```
-In this example, the response from the server should be a 99% chance of economics news
+In this example, the response from the server should be a 99% chance of economics news.
